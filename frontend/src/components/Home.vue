@@ -3,7 +3,7 @@
         <v-app-bar color="deep-purple accent-4" dense dark>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title>{{ title }}</v-toolbar-title>
+            <v-toolbar-title>The Cinoch</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -19,12 +19,15 @@
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
     name: "Home",
 
-    data: () => ({
-		title: 'The Cinoch'
-    }),
-};
+    data() {
+        return {
+        };
+    },
+});
 </script>
