@@ -14,12 +14,19 @@
             <v-btn icon>
                 <v-icon>mdi-magnify</v-icon>
             </v-btn>
-
         </v-app-bar>
+        <v-list>
+            <v-list-item v-for="(message, index) in messages" :key="index">
+                <v-list-content>
+                    <v-list-item-title v-text="message"></v-list-item-title>
+                </v-list-content>
+            </v-list-item>
+        </v-list>
     </div>
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -27,7 +34,11 @@ export default defineComponent({
 
     data() {
         return {
+            messages: ["bonjour", "c'est", "moi"]
         };
     },
+    async created() {
+        this.messages = (await axios.get('http://localhost:3000/home')).data;
+    }
 });
 </script>
